@@ -5,14 +5,14 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-require 'faker'
-
 Author.destroy_all
 Book.destroy_all
 
-25.times do
-  Author.create(name:Faker::Book.author, age:Faker::Date.between(from: '1990-09-23', to: '2022-09-25')))
-25.times do
-  Book.create(name:Faker::Book.title, genre:Faker::Book.genre) 
+bil = Author.create(name:'Billy Thortin', age:45)
+ann = Author.create(name:'Annie Bangs', age:54)
 
-end 
+Book.create(title:'Hope',genre:'fiction', author_id:bil.id)
+Book.create(title:'Grace',genre:'History', author_id:bil.id)
+Book.create(title:'Days',genre:'Fantasy', author_id:ann.id)
+Book.create(title:'Thunder',genre:'fiction', author_id:ann.id)
+Book.create(title:'Bad Fun',genre:'Fantasy', author_id:bil.id)
