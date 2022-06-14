@@ -17,7 +17,5 @@ Rails.application.routes.draw do
     delete '/authors/:author_id/books/:id', to: 'books#destroy' 
 
     get '/books', to:  'books#all_books' 
-    get '/everything', to:  'authors#everything'
-  
   end
 end

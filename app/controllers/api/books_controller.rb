@@ -1,6 +1,9 @@
 class Api::BooksController < ApplicationController
-  before_action :set_author
+  before_action :set_author, exept: [:all_books]
   before_action :set_book, only: [:show, :update, :destroy]
+
+  def all_books
+    render json: Book.all
  
   def index
       render json: @author.books.all
@@ -34,7 +37,7 @@ class Api::BooksController < ApplicationController
   private
   
   def books_params
-    params.require(:book).permit(:name, :genre)
+    params.require(:book).permit(:title, :genre)
   end
 
   def set_author
