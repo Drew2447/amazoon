@@ -4,6 +4,7 @@ class Api::BooksController < ApplicationController
 
   def all_books
     render json: Book.all
+  end
  
   def index
       render json: @author.books.all
